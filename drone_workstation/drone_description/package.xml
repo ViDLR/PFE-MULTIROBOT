@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>drone_</name>
+  <name>drone_description</name>
   <version>0.0.1</version>
-  <description>drone</description>
+  <description>description du drone</description>
 
   <maintainer email="pierre.joyet@etu.sorbonne-universite.fr">Pierre JOYET</maintainer>
 
