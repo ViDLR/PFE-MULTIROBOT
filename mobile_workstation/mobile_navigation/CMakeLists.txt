@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(mobile_)
+project(mobile_navigation)
 
 
 find_package(catkin REQUIRED COMPONENTS
-  urdf
+  roscpp
   rospy
   std_msgs
+nav_msgs
 )
 
-
-catkin_python_setup(
-)
 
 
 catkin_package(

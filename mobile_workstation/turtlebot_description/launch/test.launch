@@ -1,0 +1,15 @@
+<launch>
+  <param name="robot_description" command="xacro --inorder $(find turtlebot_description)/robots/kobuki_hexagons_kinect.urdf.xacro"/>
+  <!--<param name="use_gui" value="True"/>-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="False"/>
+  </node>
+
+  <!-- combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+  </node>
+
+  <!-- show in Rviz, WITH config file -->
+  <node name="rviz" pkg="rviz" type="rviz"/>
+
+</launch>

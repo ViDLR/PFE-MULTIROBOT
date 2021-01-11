@@ -1,0 +1,7 @@
+<?xml version="1.0"?> 
+
+<launch>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find world_sim)/map/maze.yaml" />
+  <node name="rviz" pkg="rviz" type="rviz"/>
+<include file="$(find turtlebot_description)/launch/test_gazebo.launch" />
+</launch>
