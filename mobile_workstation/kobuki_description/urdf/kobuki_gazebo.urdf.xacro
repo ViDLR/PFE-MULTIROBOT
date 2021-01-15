@@ -148,7 +148,7 @@
       <sensor type="imu" name="imu">
       <always_on>true</always_on>
       <update_rate>50</update_rate>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <imu>
           <noise>
             <type>gaussian</type>
@@ -168,6 +168,7 @@
         </imu>
       </sensor>
     </gazebo>
+
 
     <gazebo>
       <plugin name="kobuki_controller" filename="libgazebo_ros_kobuki.so">
@@ -200,11 +201,20 @@
       <commandTopic>mobile/cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>link_chassis</robotBaseFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
     </plugin>
   </gazebo>
 
-
+  <gazebo>
+        <plugin name="gazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <bodyName>base_footprint</bodyName>
+        <topicName>ground_truth_pose</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>map</frameName>
+        </plugin>
+    </gazebo>  
 
   </xacro:macro>
 </robot>
