@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find world_sim)/world/world1projet.world"/>
+  </include>
+    <param name="robot_description" command="xacro --inorder $(find turtlebot_description)/robots/turtlebot.urdf.xacro"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="5.0"/>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+  </node>
+
+
+
+  	<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description  -x 0.0 -y 0 -z 0.05 -Y 1.57 -model turtlebot" />
+		
+
+</launch>
